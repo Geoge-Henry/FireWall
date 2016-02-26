@@ -1,0 +1,27 @@
+﻿@{
+    ViewBag.Title = "Search";
+}
+
+    <div style='font-size:20px;font-weight:600; position:relative;left:40%;top:40%;border:3px;'>
+    <h2>近期的访问记录</h2>
+    </div>
+ <div style='font-size:20px;font-weight:600; position:relative;left:19%;top:50%;border:3px;'>
+     <h4>序号&nbsp&nbsp IP地址&nbsp 端口号 方法&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Url&nbsp &nbsp &nbsp 
+         &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+         流量&nbsp &nbsp &nbsp 请求时间&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp 黑名单&nbsp &nbsp &nbsp &nbsp 备注</h4>
+ </div>
+ <div style='font-size:20px;font-weight:600; position:relative;left:20%;top:60%;border:3px;'>
+@{
+    int num = 0;
+    foreach(string JournalRecords in ViewData["DBJournal"] as string[,])
+    {     
+        
+        <a>@JournalRecords&nbsp&nbsp</a>
+        num++;
+        if((num%9)==0)
+        {
+             <br/>
+        }
+    }
+}
+</div>

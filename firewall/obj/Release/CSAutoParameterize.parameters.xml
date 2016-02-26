@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="DefaultConnection-Web.config Connection String" description="DefaultConnection 由应用程序在 web.config 中用来访问数据库的连接字符串。" defaultValue="Data Source=(LocalDb)\v11.0;Initial Catalog=aspnet-firewall-20160108145800;Integrated Security=SSPI;AttachDBFilename=|DataDirectory|\aspnet-firewall-20160108145800.mdf" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="E:\\c\#\\部署\\firewall\\firewall\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
+  </parameter>
+  <parameter name="VisitorInfo-Web.config Connection String" description="VisitorInfo 由应用程序在 web.config 中用来访问数据库的连接字符串。" defaultValue="Data Source=localhost;port=3306;Initial Catalog=waf_db;user id=Henry;password=91123240;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="E:\\c\#\\部署\\firewall\\firewall\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='VisitorInfo']/@connectionString" />
+  </parameter>
+</parameters>

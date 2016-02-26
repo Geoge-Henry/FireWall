@@ -1,0 +1,24 @@
+﻿@model MVCDemo.Models.ShowContents
+@{
+    ViewBag.Title = "Index";
+}
+@*<div style='font-size:20px;font-weight:600; position:relative;left:45%;top:30%;border:3px;'>
+<h2>欢迎登陆！</h2>
+</div>
+
+<div style='font-size:20px;font-weight:600; position:relative;left:15%;top:40%;border:3px;'>
+<h4>请求的IP地址： @Html.Encode(ViewData["HostIp"])</h4>
+<h4>请求的端口： @Html.Encode(ViewData["Port"])</h4>
+<h4>请求的方法： @Html.Encode(ViewData["Method"])</h4>
+<h4>请求的URL： @Html.Encode(ViewData["Url"])</h4>
+<h4>请求的内容类型： @Html.Encode(ViewData["ContentType"])</h4>
+<h4>请求的内容总字节数： @Html.Encode(ViewData["TotalBytes"])</h4>
+<h4>请求的内容： @Html.Encode(ViewData["RequestContents"])</h4> 
+</div>*@
+
+@*<div style='font-size:20px;font-weight:600; position:relative;left:15%;top:50%;border:3px;'>
+@foreach (KeyValuePair<string,string> HeaderKey in ViewData["RequestHeader"] as Dictionary<string, string>)
+{
+    <h4>@HeaderKey.Key:  @HeaderKey.Value</h4>
+}
+</div>*@

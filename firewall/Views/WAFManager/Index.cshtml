@@ -1,0 +1,85 @@
+﻿@model firewall.Models.SetWafManager
+
+@{
+    ViewBag.Title = "Index";   
+}
+
+
+@using (Html.BeginForm("Index","WAFManager",FormMethod.Post)) {
+    @Html.ValidationSummary(true)
+
+    <div style='font-size:20px;font-weight:600; position:relative;left:40%;top:40%;border:3px;'>
+     欢迎来到WAF管理中心!
+    </div>
+    <fieldset>
+        <div style=' position:relative;left:40%;top:50%;border:3px'>
+        <legend>设置界面</legend>
+
+        <div class="editor-label">
+            IP地址：
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Visitor_IP)
+            @Html.ValidationMessageFor(model => model.Visitor_IP)
+        </div>
+
+        <div class="editor-label">
+            设置限定单个IP的访问频率：
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Visitor_TotalRate)
+            @Html.ValidationMessageFor(model => model.Visitor_TotalRate)
+        </div>
+
+        <div class="editor-label">
+            设置限定单个IP的访问流量：
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Flow_TotalRate)
+            @Html.ValidationMessageFor(model => model.Flow_TotalRate)
+        </div>
+
+        <div class="editor-label">
+            设置该IP地址是否为黑名单地址：
+            @Html.EditorFor(model => model.Visit_Limit)
+            @Html.ValidationMessageFor(model => model.Visit_Limit)
+        </div>
+
+        <p>
+            <input type="submit" value="保存设定" />
+        </p>   
+        </div> 
+    </fieldset>     
+    
+}
+<div style=' position:relative;left:40%;top:50%;border:3px'>
+    @Html.ActionLink("查看近期访问记录", "Search")
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+<div style=' position:relative;left:40%;top:60%;border:3px'>
+    <h3>防火墙设置历史：</h3>
+    <h2>序号&nbsp&nbsp IP&nbsp&nbsp 流量/频率/黑名单设置</h2>
+@{
+    string[] str = new string[int.Parse(ViewData["row"].ToString())];
+    int i=0; 
+    foreach (string DataResult in ViewData["Data"] as string[])
+    { 
+        if(@DataResult!=null)
+        {
+        str[i] = @DataResult;
+        i++;
+        }
+    }
+    for(int j=4;j<int.Parse(ViewData["row"].ToString());j+=5)
+    {
+        if(str[j]!=null)
+        {
+        <h3>@str[j-4]&nbsp&nbsp @str[j-3]&nbsp&nbsp @str[j-2]&nbsp&nbsp @str[j-1]&nbsp&nbsp @str[j]</h3>
+        }
+    }
+}
+</div>
+
